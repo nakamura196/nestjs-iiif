@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Access-Control-Allow-Methods",
+                    "value": "GET,POST,OPTIONS"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Content-Type,Authorization"
+                }
+            ]
+        }
+    ],
+    "builds": [
+        {
+            "src": "dist/main.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "dist/main.js"
+        }
+    ]
+}
