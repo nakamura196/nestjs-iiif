@@ -10,7 +10,7 @@ export class S3Controller {
   async getManifest(@Param('encodedKey') encodedKey: string) {
     try {
       // `%2F` を `/` にデコードして元のキーに戻す
-      let key = decodeURIComponent(encodedKey);
+      let key = encodedKey.replace(/~/g, '/');
 
       if (!key.endsWith('/manifest.json')) {
         key += '/manifest.json';
